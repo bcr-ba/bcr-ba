@@ -6,9 +6,9 @@
 </picture>
 
 <p>
-<a href="https://bocar-ba-portfolio.surge.sh"><b>Portfolio</b></a>
-&nbsp;&middot;&nbsp;
 <a href="https://www.linkedin.com/in/bocar-ba-1781992b2"><b>LinkedIn</b></a>
+&nbsp;&middot;&nbsp;
+<a href="https://bocar-ba-portfolio.surge.sh"><b>Portfolio</b></a>
 &nbsp;&middot;&nbsp;
 <a href="https://bocar-ba-portfolio.surge.sh/cv.html"><b>CV</b></a>
 &nbsp;&middot;&nbsp;
