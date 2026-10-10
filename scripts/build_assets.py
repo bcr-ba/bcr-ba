@@ -1,4 +1,4 @@
-"""Generate the profile's SVG assets (banner, now panel, project cards, stack) in dark and light themes.
+"""Generate the profile's SVG assets (banner, now panel, cards, stack, timeline, CTA) in dark and light themes.
 
 Run from the repo root:  python scripts/build_assets.py
 Edit THEMES / CARDS below, re-run, commit the files in assets/.
@@ -79,6 +79,96 @@ def banner(t):
   <circle class="pulse" cx="500" cy="232" r="8.5" fill="{t['accent']}"/>
   <circle class="packet" cx="300" cy="232" r="3.5" fill="{t['accent']}"/>
   <text x="500" y="272" text-anchor="middle" font-family="{MONO}" font-size="12" letter-spacing="3" fill="{t['subtle']}">MULTI-AGENT SYSTEMS  ·  LOCAL INFERENCE  ·  EVALUATION</text>
+  <text x="32" y="46" font-family="{MONO}" font-size="11" letter-spacing="2" fill="{t['subtle']}">BAVARIA, GERMANY</text>
+  <rect x="720.5" y="26.5" width="251" height="29" rx="14.5" fill="{t['accent']}" fill-opacity="0.10" stroke="{t['accent']}" stroke-opacity="0.45"/>
+  <circle class="pulse" cx="740" cy="41" r="3.5" fill="{t['accent']}"/>
+  <text x="754" y="45" font-family="{MONO}" font-size="11" letter-spacing="1.5" fill="{t['accent']}">{AVAILABILITY}</text>
+</svg>
+"""
+
+
+AVAILABILITY = "OPEN TO ROLES · LATE 2026"
+
+# (date, organisation, role); evenly spaced, the last entry is the open next step.
+TIMELINE = [
+    ("2023 · 2024", "Banque Centrale", "BI Intern, Mauritania"),
+    ("SUMMER 2024", "Pristini School of AI", "IoT Developer Intern"),
+    ("JUL – OCT 2025", "Novation City", "Generative AI Intern"),
+    ("DEC 25 – JAN 26", "Ubotica Technologies", "Applied ML Intern"),
+    ("MAR 2026 – NOW", "OTH Amberg-Weiden", "AI Research Intern"),
+    ("LATE 2026", "Next: your team", "Junior AI / ML Engineer"),
+]
+
+
+def timeline_panel(t):
+    w, h = 1000, 200
+    n = len(TIMELINE)
+    xs = [92 + i * (w - 184) / (n - 1) for i in range(n)]
+    current, nxt = n - 2, n - 1
+    parts = [
+        f'  <line x1="{xs[0]:.0f}" y1="96" x2="{xs[current]:.0f}" y2="96" stroke="url(#tl)" stroke-width="2"/>',
+        f'  <line x1="{xs[current]:.0f}" y1="96" x2="{xs[nxt]:.0f}" y2="96" stroke="{t["accent"]}" stroke-opacity="0.6" stroke-width="2" stroke-dasharray="2 6" stroke-linecap="round"/>',
+    ]
+    for i, ((date, org, role), x) in enumerate(zip(TIMELINE, xs)):
+        if i == current:
+            node = (f'  <circle cx="{x:.0f}" cy="96" r="15" fill="{t["accent"]}" fill-opacity="0.16"/>\n'
+                    f'  <circle class="pulse" cx="{x:.0f}" cy="96" r="7.5" fill="{t["accent"]}"/>')
+        elif i == nxt:
+            node = f'  <circle cx="{x:.0f}" cy="96" r="7" fill="{t["node"]}" stroke="{t["accent"]}" stroke-width="2" stroke-dasharray="3 3"/>'
+        else:
+            node = f'  <circle cx="{x:.0f}" cy="96" r="6.5" fill="{t["node"]}" stroke="{t["line"]}" stroke-width="2"/>'
+        hot = i >= current
+        parts.append(
+            f'  <text x="{x:.0f}" y="62" text-anchor="middle" font-family="{MONO}" font-size="10.5" letter-spacing="1.5" fill="{t["accent"] if hot else t["subtle"]}">{escape(date)}</text>\n'
+            f'{node}\n'
+            f'  <text x="{x:.0f}" y="138" text-anchor="middle" font-family="{SANS}" font-size="14" font-weight="700" fill="{t["text"]}">{escape(org)}</text>\n'
+            f'  <text x="{x:.0f}" y="159" text-anchor="middle" font-family="{SANS}" font-size="12.5" fill="{t["muted"]}">{escape(role)}</text>'
+        )
+    label = "; ".join(f"{d}: {r} at {o}" for d, o, r in TIMELINE[:-1]) + f"; next, {TIMELINE[-1][2]} from {TIMELINE[-1][0].lower()}."
+    return f"""<svg viewBox="0 0 {w} {h}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Experience timeline. {escape(label)}">{MOTION_CSS}
+{frame(t, w, h)}
+  <defs>
+    <linearGradient id="tl" x1="{xs[0]:.0f}" y1="0" x2="{xs[current]:.0f}" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="{t['line']}" stop-opacity="0.35"/>
+      <stop offset="0.8" stop-color="{t['line']}" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="{t['accent']}"/>
+    </linearGradient>
+  </defs>
+{chr(10).join(parts)}
+</svg>
+"""
+
+
+def cta_panel(t):
+    w, h = 1000, 150
+    return f"""<svg viewBox="0 0 {w} {h}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hiring for LLM agents or applied ML? Email bcrtob@gmail.com.">
+{frame(t, w, h)}
+  <text x="36" y="66" font-family="{SANS}" font-size="26" font-weight="700" fill="{t['text']}">Hiring for LLM agents or applied ML?</text>
+  <text x="36" y="98" font-family="{SANS}" font-size="15" fill="{t['muted']}">Graduating October 2026, based in Bavaria. Happy to walk you through any of these systems.</text>
+  <rect x="738" y="51" width="226" height="48" rx="24" fill="{t['accent']}"/>
+  <text x="851" y="81" text-anchor="middle" font-family="{SANS}" font-size="15" font-weight="700" fill="{t['bg0']}">bcrtob@gmail.com  →</text>
+</svg>
+"""
+
+
+def social_preview(t):
+    """1280x640 repository social preview, shown when the repo link is shared."""
+    w, h = 1280, 640
+    xs = [340, 440, 540, 640, 740, 840, 940]
+    nodes = "\n".join(
+        f'  <circle cx="{x}" cy="470" r="9" fill="{t["node"]}" stroke="{t["line"]}" stroke-width="2.5"/>' for x in xs if x != 640
+    )
+    return f"""<svg viewBox="0 0 {w} {h}" width="{w}" height="{h}" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="{w}" height="{h}" fill="{t['bg1']}"/>
+{frame(t, w, h, rx=0)}
+  <text x="640" y="250" text-anchor="middle" font-family="{SANS}" font-size="104" font-weight="700" letter-spacing="14" fill="{t['text']}">BOCAR BA</text>
+  <rect x="580" y="282" width="120" height="4" rx="2" fill="{t['accent']}"/>
+  <text x="640" y="350" text-anchor="middle" font-family="{MONO}" font-size="26" letter-spacing="5" fill="{t['muted']}">JUNIOR AI ENGINEER  ·  LLM AGENTS  ·  APPLIED ML</text>
+  <line x1="340" y1="470" x2="940" y2="470" stroke="{t['line']}" stroke-opacity="0.5" stroke-width="2.5"/>
+{nodes}
+  <circle cx="640" cy="470" r="24" fill="{t['accent']}" fill-opacity="0.18"/>
+  <circle cx="640" cy="470" r="12" fill="{t['accent']}"/>
+  <text x="640" y="560" text-anchor="middle" font-family="{MONO}" font-size="20" letter-spacing="4" fill="{t['subtle']}">GITHUB.COM/BCR-BA</text>
 </svg>
 """
 
@@ -287,12 +377,15 @@ def main():
         (OUT / f"banner-{name}.svg").write_text(banner(t), encoding="utf-8", newline="\n")
         (OUT / f"now-{name}.svg").write_text(now_panel(t), encoding="utf-8", newline="\n")
         (OUT / f"stack-{name}.svg").write_text(stack_panel(t), encoding="utf-8", newline="\n")
+        (OUT / f"timeline-{name}.svg").write_text(timeline_panel(t), encoding="utf-8", newline="\n")
+        (OUT / f"cta-{name}.svg").write_text(cta_panel(t), encoding="utf-8", newline="\n")
         for c in CARDS:
             (OUT / f"card-{c['slug']}-{name}.svg").write_text(card(t, c), encoding="utf-8", newline="\n")
     brand = OUT.parent / "brand"
     brand.mkdir(exist_ok=True)
     (brand / "linkedin-banner.svg").write_text(linkedin_banner(THEMES["dark"]), encoding="utf-8", newline="\n")
-    print(f"wrote {len(THEMES) * (3 + len(CARDS))} files to {OUT} and the LinkedIn banner to {brand}")
+    (brand / "social-preview.svg").write_text(social_preview(THEMES["dark"]), encoding="utf-8", newline="\n")
+    print(f"wrote {len(THEMES) * (5 + len(CARDS))} files to {OUT} and the LinkedIn banner to {brand}")
 
 
 if __name__ == "__main__":

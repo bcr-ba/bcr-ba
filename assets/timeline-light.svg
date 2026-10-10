@@ -1,0 +1,58 @@
+<svg viewBox="0 0 1000 200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Experience timeline. 2023 · 2024: BI Intern, Mauritania at Banque Centrale; SUMMER 2024: IoT Developer Intern at Pristini School of AI; JUL – OCT 2025: Generative AI Intern at Novation City; DEC 25 – JAN 26: Applied ML Intern at Ubotica Technologies; MAR 2026 – NOW: AI Research Intern at OTH Amberg-Weiden; next, Junior AI / ML Engineer from late 2026.">
+  <style>
+    .pulse { transform-box: fill-box; transform-origin: center; animation: pulse 2.4s ease-in-out infinite; }
+    .packet { animation: travel 3.2s linear infinite; }
+    @keyframes pulse { 50% { transform: scale(1.25); opacity: .75; } }
+    @keyframes travel {
+      0% { transform: translateX(0); opacity: 0; } 10% { opacity: 1; }
+      90% { opacity: 1; } 100% { transform: translateX(400px); opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) { .pulse, .packet { animation: none; } }
+  </style>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#F3F7FB"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0.5" cy="0.35" r="0.6">
+      <stop offset="0" stop-color="#DCEAF2" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#F3F7FB" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="0.5" y="0.5" width="999" height="199" rx="18" fill="url(#bg)"/>
+  <rect x="0.5" y="0.5" width="999" height="199" rx="18" fill="url(#halo)"/>
+  <rect x="0.5" y="0.5" width="999" height="199" rx="18" fill="none" stroke="#0F2035" stroke-opacity="0.12"/>
+  <defs>
+    <linearGradient id="tl" x1="92" y1="0" x2="745" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3D7F94" stop-opacity="0.35"/>
+      <stop offset="0.8" stop-color="#3D7F94" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#C77A14"/>
+    </linearGradient>
+  </defs>
+  <line x1="92" y1="96" x2="745" y2="96" stroke="url(#tl)" stroke-width="2"/>
+  <line x1="745" y1="96" x2="908" y2="96" stroke="#C77A14" stroke-opacity="0.6" stroke-width="2" stroke-dasharray="2 6" stroke-linecap="round"/>
+  <text x="92" y="62" text-anchor="middle" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace" font-size="10.5" letter-spacing="1.5" fill="#5B7487">2023 · 2024</text>
+  <circle cx="92" cy="96" r="6.5" fill="#FFFFFF" stroke="#3D7F94" stroke-width="2"/>
+  <text x="92" y="138" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#0F2035">Banque Centrale</text>
+  <text x="92" y="159" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#2F5E73">BI Intern, Mauritania</text>
+  <text x="255" y="62" text-anchor="middle" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace" font-size="10.5" letter-spacing="1.5" fill="#5B7487">SUMMER 2024</text>
+  <circle cx="255" cy="96" r="6.5" fill="#FFFFFF" stroke="#3D7F94" stroke-width="2"/>
+  <text x="255" y="138" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#0F2035">Pristini School of AI</text>
+  <text x="255" y="159" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#2F5E73">IoT Developer Intern</text>
+  <text x="418" y="62" text-anchor="middle" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace" font-size="10.5" letter-spacing="1.5" fill="#5B7487">JUL – OCT 2025</text>
+  <circle cx="418" cy="96" r="6.5" fill="#FFFFFF" stroke="#3D7F94" stroke-width="2"/>
+  <text x="418" y="138" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#0F2035">Novation City</text>
+  <text x="418" y="159" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#2F5E73">Generative AI Intern</text>
+  <text x="582" y="62" text-anchor="middle" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace" font-size="10.5" letter-spacing="1.5" fill="#5B7487">DEC 25 – JAN 26</text>
+  <circle cx="582" cy="96" r="6.5" fill="#FFFFFF" stroke="#3D7F94" stroke-width="2"/>
+  <text x="582" y="138" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#0F2035">Ubotica Technologies</text>
+  <text x="582" y="159" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#2F5E73">Applied ML Intern</text>
+  <text x="745" y="62" text-anchor="middle" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace" font-size="10.5" letter-spacing="1.5" fill="#C77A14">MAR 2026 – NOW</text>
+  <circle cx="745" cy="96" r="15" fill="#C77A14" fill-opacity="0.16"/>
+  <circle class="pulse" cx="745" cy="96" r="7.5" fill="#C77A14"/>
+  <text x="745" y="138" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#0F2035">OTH Amberg-Weiden</text>
+  <text x="745" y="159" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#2F5E73">AI Research Intern</text>
+  <text x="908" y="62" text-anchor="middle" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace" font-size="10.5" letter-spacing="1.5" fill="#C77A14">LATE 2026</text>
+  <circle cx="908" cy="96" r="7" fill="#FFFFFF" stroke="#C77A14" stroke-width="2" stroke-dasharray="3 3"/>
+  <text x="908" y="138" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#0F2035">Next: your team</text>
+  <text x="908" y="159" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12.5" fill="#2F5E73">Junior AI / ML Engineer</text>
+</svg>

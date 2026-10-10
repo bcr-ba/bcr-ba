@@ -1,0 +1,18 @@
+<svg viewBox="0 0 1000 150" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hiring for LLM agents or applied ML? Email bcrtob@gmail.com.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0A1729"/><stop offset="1" stop-color="#0F2035"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0.5" cy="0.35" r="0.6">
+      <stop offset="0" stop-color="#1E4A63" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#0F2035" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="0.5" y="0.5" width="999" height="149" rx="18" fill="url(#bg)"/>
+  <rect x="0.5" y="0.5" width="999" height="149" rx="18" fill="url(#halo)"/>
+  <rect x="0.5" y="0.5" width="999" height="149" rx="18" fill="none" stroke="#74B4C7" stroke-opacity="0.18"/>
+  <text x="36" y="66" font-family="'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#EDF3F9">Hiring for LLM agents or applied ML?</text>
+  <text x="36" y="98" font-family="'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" fill="#9FC1CE">Graduating October 2026, based in Bavaria. Happy to walk you through any of these systems.</text>
+  <rect x="738" y="51" width="226" height="48" rx="24" fill="#F2AC4E"/>
+  <text x="851" y="81" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#0A1729">bcrtob@gmail.com  →</text>
+</svg>

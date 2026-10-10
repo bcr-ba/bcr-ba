@@ -48,6 +48,12 @@ Also: **Network Anomaly Detection**, an unsupervised Isolation Forest pipeline o
 
 ## Experience
 
+<picture><source media="(prefers-color-scheme: dark)" srcset="./assets/timeline-dark.svg"><img src="./assets/timeline-light.svg" width="100%" alt="Experience timeline: BI intern at Banque Centrale de Mauritanie (2023, 2024); IoT developer intern at Pristini School of AI (summer 2024); generative AI intern at Novation City (Jul to Oct 2025); applied ML intern at Ubotica Technologies (Dec 2025 to Jan 2026); AI research intern at OTH Amberg-Weiden (Mar 2026 to now); next, a junior AI / ML engineering role from late 2026."></picture>
+
+<details>
+<summary><b>What I did in each role</b></summary>
+<br/>
+
 | Period | Role | Focus |
 |:--|:--|:--|
 | Mar 2026 – now | **AI Research Intern** · OTH Amberg-Weiden | Thesis: multi-agent orchestration across IoT sensors, Pepper / Webots and multimodal LLMs |
@@ -55,6 +61,8 @@ Also: **Network Anomaly Detection**, an unsupervised Isolation Forest pipeline o
 | Jul – Oct 2025 | **Generative AI Intern** · Novation City | EN/FR LLM services for ESG and KPI reporting; benchmarked Gemini, Mistral and Ollama; direct LLM vs RAG; prompt-injection defences |
 | Summer 2024 | **IoT Developer Intern** · Pristini School of AI | ESP8266 + Firebase smart-home system with a mobile monitoring app |
 | 2023, 2024 | **BI Intern** · Banque Centrale de Mauritanie | Financial web scraping and ETL; external reserves operations |
+
+</details>
 
 <br/>
 
@@ -82,6 +90,10 @@ Also: **Network Anomaly Detection**, an unsupervised Isolation Forest pipeline o
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/bcr-ba/bcr-ba/output/activity-dark.svg">
   <img src="https://raw.githubusercontent.com/bcr-ba/bcr-ba/output/activity-light.svg" alt="Animated contribution graph for the last year, redrawn daily" width="100%">
 </picture>
+
+<br/><br/>
+
+<a href="mailto:bcrtob@gmail.com"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/cta-dark.svg"><img src="./assets/cta-light.svg" width="100%" alt="Hiring for LLM agents or applied ML? Email bcrtob@gmail.com"></picture></a>
 
 <br/><br/>
 

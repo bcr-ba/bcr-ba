@@ -41,4 +41,8 @@
   <circle class="pulse" cx="500" cy="232" r="8.5" fill="#F2AC4E"/>
   <circle class="packet" cx="300" cy="232" r="3.5" fill="#F2AC4E"/>
   <text x="500" y="272" text-anchor="middle" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace" font-size="12" letter-spacing="3" fill="#6E8AA0">MULTI-AGENT SYSTEMS  ·  LOCAL INFERENCE  ·  EVALUATION</text>
+  <text x="32" y="46" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace" font-size="11" letter-spacing="2" fill="#6E8AA0">BAVARIA, GERMANY</text>
+  <rect x="720.5" y="26.5" width="251" height="29" rx="14.5" fill="#F2AC4E" fill-opacity="0.10" stroke="#F2AC4E" stroke-opacity="0.45"/>
+  <circle class="pulse" cx="740" cy="41" r="3.5" fill="#F2AC4E"/>
+  <text x="754" y="45" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace" font-size="11" letter-spacing="1.5" fill="#F2AC4E">OPEN TO ROLES · LATE 2026</text>
 </svg>
