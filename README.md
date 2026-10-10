@@ -15,7 +15,7 @@
 <a href="mailto:bcrtob@gmail.com"><b>Email</b></a>
 </p>
 
-<sub>Bavaria, Germany &nbsp;&middot;&nbsp; English, French &nbsp;&middot;&nbsp; Bachelor of Applied AI, 2026</sub>
+<sub>Bavaria, Germany &nbsp;&middot;&nbsp; Arabic, French, English, basic German &nbsp;&middot;&nbsp; Bachelor of Applied AI, 2026</sub>
 
 </div>
 
@@ -73,9 +73,9 @@ Also: a **Prompt Engineering Assistant** (LangChain agents that generate, optimi
 | Period | Role | Focus |
 |:--|:--|:--|
 | Mar – Sep 2026 | **AI Research Intern** · OTH Amberg-Weiden, HealthTech Research Group | Thesis (grade 1.3): seven-agent verification layer between smart-home sensor alarms and a Pepper robot; LangGraph, FastAPI, local Qwen2.5-VL and Llama 3.1 via Ollama, CI with GitHub Actions |
-| Dec 2025 – Jan 2026 | **Applied ML Intern** · Ubotica Technologies | CVAT datasets; few-shot, one-shot and meta-learning (MAML) for inspection models |
-| Jul – Oct 2025 | **Generative AI Intern** · Novation City | EN/FR LLM services for ESG and KPI reporting; benchmarked Gemini, Mistral and Ollama; direct LLM vs RAG; prompt-injection defences |
-| Summer 2024 | **IoT Developer Intern** · Pristini School of AI | ESP8266 + Firebase smart-home system with a mobile monitoring app |
+| Dec 2025 – Jan 2026 | **Applied ML Intern** · Ubotica Technologies | Turned 954 unlabelled sensor images into 3,863 defect annotations across 12 classes from written definitions only; raised inter-annotator agreement from under 75% to over 90%; YOLO / Pascal VOC exports with stratified splits |
+| Jul – Oct 2025 | **Generative AI Intern** · Novation City | AI layer of a bilingual (EN/FR) Industry 4.0 and ESG assessment platform: report production from 5+ days to under 1 hour; benchmarked RAG, local models (Ollama) and Gemini; prompt A/B tests lifted stakeholder approval from 62% to 94%; prompt-injection defences |
+| Summer 2024 | **IoT Developer Intern** · Pristini School of AI | Team of three: ESP8266 + Firebase smart-home scale model with temperature, gas, flame, motion, rain and light sensing, energy monitoring and gas/fire alarms, driven from an authenticated Android app |
 | 2023, 2024 | **BI Intern** · Banque Centrale de Mauritanie | Financial web scraping and ETL; external reserves operations |
 
 </details>
@@ -95,7 +95,7 @@ Also: a **Prompt Engineering Assistant** (LangChain agents that generate, optimi
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/stack-dark.svg"><img src="./assets/stack-light.svg" width="100%" alt="Tech stack: Python, TypeScript, Java, SQL, LangGraph, LangChain, Ollama, Qwen2.5-VL, PyTorch, TensorFlow, scikit-learn, OpenCV, FastAPI, Pydantic, Docker, MQTT"></picture>
 
-<sub>Also: C &middot; XGBoost &middot; pandas &middot; Gemini &middot; LangSmith &middot; Giskard &middot; SQLite &middot; MongoDB &middot; GitHub Actions &middot; Next.js &middot; Prisma &middot; Streamlit &middot; Linux &middot; ESP8266</sub>
+<sub>Also: C &middot; XGBoost &middot; pandas &middot; Gemini &middot; Laravel (PHP) &middot; CVAT &middot; LangSmith &middot; Giskard &middot; SQLite &middot; MongoDB &middot; GitHub Actions &middot; Next.js &middot; Prisma &middot; Streamlit &middot; Linux &middot; ESP8266</sub>
 
 <br/>
 
