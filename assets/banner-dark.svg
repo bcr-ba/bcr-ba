@@ -1,0 +1,44 @@
+<svg viewBox="0 0 1000 300" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bocar Ba. Junior AI Engineer: LLM agents, applied ML.">
+  <style>
+    .pulse { transform-box: fill-box; transform-origin: center; animation: pulse 2.4s ease-in-out infinite; }
+    .packet { animation: travel 3.2s linear infinite; }
+    @keyframes pulse { 50% { transform: scale(1.25); opacity: .75; } }
+    @keyframes travel {
+      0% { transform: translateX(0); opacity: 0; } 10% { opacity: 1; }
+      90% { opacity: 1; } 100% { transform: translateX(400px); opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) { .pulse, .packet { animation: none; } }
+  </style>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0A1729"/><stop offset="1" stop-color="#0F2035"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0.5" cy="0.35" r="0.6">
+      <stop offset="0" stop-color="#1E4A63" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#0F2035" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="0.5" y="0.5" width="999" height="299" rx="18" fill="url(#bg)"/>
+  <rect x="0.5" y="0.5" width="999" height="299" rx="18" fill="url(#halo)"/>
+  <rect x="0.5" y="0.5" width="999" height="299" rx="18" fill="none" stroke="#74B4C7" stroke-opacity="0.18"/>
+  <defs>
+    <linearGradient id="wire" x1="300" y1="0" x2="700" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#74B4C7" stop-opacity="0.2"/>
+      <stop offset="0.5" stop-color="#74B4C7" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#F2AC4E" stop-opacity="0.6"/>
+    </linearGradient>
+  </defs>
+  <text x="500" y="122" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="64" font-weight="700" letter-spacing="10" fill="#EDF3F9">BOCAR BA</text>
+  <rect x="456" y="142" width="88" height="3" rx="1.5" fill="#F2AC4E"/>
+  <text x="500" y="182" text-anchor="middle" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace" font-size="17" letter-spacing="4" fill="#9FC1CE">JUNIOR AI ENGINEER  ·  LLM AGENTS  ·  APPLIED ML</text>
+  <line x1="300" y1="232" x2="700" y2="232" stroke="url(#wire)" stroke-width="2"/>
+    <circle cx="300" cy="232" r="6.5" fill="#0A1729" stroke="#74B4C7" stroke-width="2"/>
+    <circle cx="367" cy="232" r="6.5" fill="#0A1729" stroke="#74B4C7" stroke-width="2"/>
+    <circle cx="433" cy="232" r="6.5" fill="#0A1729" stroke="#74B4C7" stroke-width="2"/>
+    <circle cx="567" cy="232" r="6.5" fill="#0A1729" stroke="#74B4C7" stroke-width="2"/>
+    <circle cx="633" cy="232" r="6.5" fill="#0A1729" stroke="#74B4C7" stroke-width="2"/>
+    <circle cx="700" cy="232" r="6.5" fill="#0A1729" stroke="#74B4C7" stroke-width="2"/>
+  <circle class="pulse" cx="500" cy="232" r="8.5" fill="#F2AC4E"/>
+  <circle class="packet" cx="300" cy="232" r="3.5" fill="#F2AC4E"/>
+  <text x="500" y="272" text-anchor="middle" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace" font-size="12" letter-spacing="3" fill="#6E8AA0">MULTI-AGENT SYSTEMS  ·  LOCAL INFERENCE  ·  EVALUATION</text>
+</svg>
