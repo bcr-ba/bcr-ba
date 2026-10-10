@@ -1,0 +1,40 @@
+name: activity
+
+# Redraws the contribution-graph animation in the profile's colours and
+# publishes it to the `output` branch, which the README reads from.
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [.github/workflows/activity.yml]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: activity
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: Platane/snk@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/activity-light.svg?color_snake=#C77A14&color_dots=#EBF1F6,#C6DDE6,#8DBCCB,#3D7F94,#1E4A63&color_dot_border=#0F203514
+            dist/activity-dark.svg?color_snake=#F2AC4E&color_dots=#13263D,#1E4A63,#2F6F86,#4F9AB1,#74B4C7&color_dot_border=#74B4C722
+
+      - uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: output
+          build_dir: dist
+          keep_history: false
+          commit_message: "chore(activity): redraw contribution graph"
+          jekyll: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
