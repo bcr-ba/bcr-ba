@@ -1,4 +1,4 @@
-"""Generate the profile's SVG assets (banner + project cards) in dark and light themes.
+"""Generate the profile's SVG assets (banner, now panel, project cards, stack) in dark and light themes.
 
 Run from the repo root:  python scripts/build_assets.py
 Edit THEMES / CARDS below, re-run, commit the files in assets/.
@@ -85,14 +85,6 @@ def banner(t):
 
 CARDS = [
     {
-        "slug": "eldercare",
-        "kicker": "THESIS  ·  OTH AMBERG-WEIDEN",
-        "title": "Elderly-Care Multi-Agent System",
-        "desc": "LangGraph agents link smart-home sensors to a Pepper robot; multimodal LLMs check each event before the robot acts.",
-        "metric": "7", "caption": "agents, fully on-device",
-        "stack": "LANGGRAPH · OLLAMA · FASTAPI · MQTT",
-    },
-    {
         "slug": "finaia",
         "kicker": "APPLIED ML  ·  CREDIT RISK",
         "title": "FINAIA",
@@ -116,7 +108,35 @@ CARDS = [
         "metric": "5", "caption": "urgency levels, EN / FR",
         "stack": "RAG · LANGCHAIN · PYQT6",
     },
+    {
+        "slug": "promptlab",
+        "kicker": "GENAI SECURITY  ·  AGENTS",
+        "title": "Prompt Engineering Assistant",
+        "desc": "LangChain agents that generate, optimise and red-team prompts, with bias and injection checks built in.",
+        "metric": "3", "caption": "modes: generate, optimise, test",
+        "stack": "LANGCHAIN · STREAMLIT · PYTHON",
+    },
 ]
+
+# The thesis pipeline drawn in the "Now" panel, left to right; the highlighted stage gets the accent.
+PIPELINE = [
+    ("Home Assistant", "IOT SENSORS"),
+    ("MQTT", "EVENT BUS"),
+    ("LangGraph", "7 AGENTS"),
+    ("Multimodal LLM", "VERIFY FIRST"),
+    ("Pepper", "ROBOT ACTION"),
+]
+PIPELINE_FOCUS = 2
+
+# (group label, [(simple-icons slug, label), ...]); icons are cached in scripts/icons/.
+STACK = [
+    ("LANGUAGES", [("python", "Python"), ("typescript", "TypeScript"), ("openjdk", "Java"), ("postgresql", "SQL")]),
+    ("GENAI / AGENTS", [("langgraph", "LangGraph"), ("langchain", "LangChain"), ("ollama", "Ollama"), ("googlegemini", "Gemini")]),
+    ("MACHINE LEARNING", [("pytorch", "PyTorch"), ("tensorflow", "TensorFlow"), ("scikitlearn", "scikit-learn"), ("opencv", "OpenCV")]),
+    ("BACKEND / IOT", [("fastapi", "FastAPI"), ("docker", "Docker"), ("mqtt", "MQTT"), ("homeassistant", "Home Assistant")]),
+]
+ICONS = Path(__file__).resolve().parent / "icons"
+SIMPLE_ICONS = "https://cdn.jsdelivr.net/npm/simple-icons@16.34.0/icons/{}.svg"
 
 CARD_W, CARD_H = 480, 260
 
@@ -136,6 +156,85 @@ def card(t, c):
   <text x="28" y="194" font-family="{SANS}"><tspan font-size="30" font-weight="700" fill="{t['accent']}">{escape(c['metric'])}</tspan><tspan dx="10" font-size="13" fill="{t['subtle']}">{escape(c['caption'])}</tspan></text>
   <line x1="28" y1="214" x2="{CARD_W - 28}" y2="214" stroke="{t['border']}" stroke-opacity="{t['border_op']}"/>
   <text x="28" y="238" font-family="{MONO}" font-size="11" letter-spacing="1.5" fill="{t['subtle']}">{escape(c['stack'])}</text>
+</svg>
+"""
+
+
+def now_panel(t):
+    w, h = 1000, 300
+    bw, bh, y = 156, 64, 162
+    gap = (w - 56 - bw * len(PIPELINE)) / (len(PIPELINE) - 1)
+    xs = [28 + i * (bw + gap) for i in range(len(PIPELINE))]
+    mid = y + bh / 2
+    arrows = "\n".join(
+        f'  <path d="M{x + bw + gap - 9:.0f} {mid - 4:.0f} l5 4 l-5 4" stroke="{t["line"]}" stroke-opacity="0.7" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>'
+        for x in xs[:-1]
+    )
+    boxes = []
+    for i, ((title, sub), x) in enumerate(zip(PIPELINE, xs)):
+        focus = i == PIPELINE_FOCUS
+        stroke = t["accent"] if focus else t["line"]
+        boxes.append(
+            f'  <rect x="{x:.0f}" y="{y}" width="{bw}" height="{bh}" rx="10" fill="{t["node"]}"/>\n'
+            + (f'  <rect x="{x:.0f}" y="{y}" width="{bw}" height="{bh}" rx="10" fill="{t["accent"]}" fill-opacity="0.10"/>\n' if focus else "")
+            + f'  <rect x="{x + 0.5:.1f}" y="{y + 0.5}" width="{bw - 1}" height="{bh - 1}" rx="9.5" stroke="{stroke}" stroke-opacity="{0.9 if focus else 0.4}"/>\n'
+            f'  <text x="{x + bw / 2:.0f}" y="{y + 28}" text-anchor="middle" font-family="{SANS}" font-size="14.5" font-weight="700" fill="{t["text"]}">{escape(title)}</text>\n'
+            f'  <text x="{x + bw / 2:.0f}" y="{y + 47}" text-anchor="middle" font-family="{MONO}" font-size="10.5" letter-spacing="1.5" fill="{t["accent"] if focus else t["subtle"]}">{escape(sub)}</text>'
+        )
+    span = xs[-1] - xs[0]
+    return f"""<svg viewBox="0 0 {w} {h}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Now: thesis at OTH Amberg-Weiden. Home Assistant sensors publish over MQTT to seven LangGraph agents; a multimodal LLM verifies each event before the Pepper robot acts. All inference runs locally.">
+  <style>
+    .packet {{ animation: run 4.5s cubic-bezier(.45,0,.55,1) infinite; }}
+    @keyframes run {{ 0% {{ transform: translateX(0); opacity: 0; }} 6% {{ opacity: 1; }} 94% {{ opacity: 1; }} 100% {{ transform: translateX({span:.0f}px); opacity: 0; }} }}
+    @media (prefers-reduced-motion: reduce) {{ .packet {{ animation: none; opacity: 0; }} }}
+  </style>
+{frame(t, w, h)}
+  <text x="28" y="46" font-family="{MONO}" font-size="11.5" letter-spacing="2" fill="{t['subtle']}">NOW  ·  THESIS AT OTH AMBERG-WEIDEN</text>
+  <circle cx="{w - 40}" cy="42" r="4" fill="{t['accent']}"/>
+  <text x="{w - 52}" y="46" text-anchor="end" font-family="{MONO}" font-size="11" letter-spacing="2" fill="{t['accent']}">IN PROGRESS</text>
+  <text x="28" y="86" font-family="{SANS}" font-size="26" font-weight="700" fill="{t['text']}">Seven agents between a smart home and a care robot</text>
+  <text x="28" y="116" font-family="{SANS}" font-size="15" fill="{t['muted']}">Sensor events pass through a LangGraph pipeline and a multimodal check before Pepper acts. Inference stays on-device.</text>
+  <line x1="{xs[0] + bw / 2:.0f}" y1="{mid}" x2="{xs[-1] + bw / 2:.0f}" y2="{mid}" stroke="{t['line']}" stroke-opacity="0.45" stroke-width="1.5"/>
+  <circle class="packet" cx="{xs[0] + bw / 2:.0f}" cy="{mid}" r="4" fill="{t['accent']}"/>
+{arrows}
+{chr(10).join(boxes)}
+  <text x="28" y="270" font-family="{MONO}" font-size="11" letter-spacing="1.5" fill="{t['subtle']}">FASTAPI · LANGGRAPH · OLLAMA · MQTT · HOME ASSISTANT · WEBOTS / PEPPER</text>
+</svg>
+"""
+
+
+def icon_path(slug):
+    """Path data for a Simple Icons glyph (24x24 viewBox), downloaded once and cached."""
+    import re
+    import urllib.request
+
+    ICONS.mkdir(exist_ok=True)
+    f = ICONS / f"{slug}.svg"
+    if not f.exists():
+        with urllib.request.urlopen(SIMPLE_ICONS.format(slug)) as r:
+            f.write_bytes(r.read())
+    return re.search(r'<path d="([^"]+)"', f.read_text(encoding="utf-8")).group(1)
+
+
+def stack_panel(t):
+    w, h = 1000, 268
+    tw, th, gap, col_w = 104, 86, 12, 244
+    parts = []
+    for gi, (label, items) in enumerate(STACK):
+        gx = 28 + gi * col_w
+        parts.append(f'  <text x="{gx}" y="42" font-family="{MONO}" font-size="11" letter-spacing="2" fill="{t["subtle"]}">{escape(label)}</text>')
+        for ii, (slug, name) in enumerate(items):
+            x = gx + (ii % 2) * (tw + gap)
+            y = 58 + (ii // 2) * (th + gap)
+            parts.append(
+                f'  <rect x="{x + 0.5}" y="{y + 0.5}" width="{tw - 1}" height="{th - 1}" rx="10" fill="{t["node"]}" fill-opacity="0.55" stroke="{t["border"]}" stroke-opacity="{t["border_op"]}"/>\n'
+                f'  <path transform="translate({x + tw / 2 - 14:.0f} {y + 16}) scale({28 / 24:.4f})" d="{icon_path(slug)}" fill="{t["text"]}" fill-opacity="0.88"/>\n'
+                f'  <text x="{x + tw / 2:.0f}" y="{y + 70}" text-anchor="middle" font-family="{SANS}" font-size="12.5" fill="{t["muted"]}">{escape(name)}</text>'
+            )
+    names = ", ".join(n for _, items in STACK for _, n in items)
+    return f"""<svg viewBox="0 0 {w} {h}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tech stack: {escape(names)}">
+{frame(t, w, h)}
+{chr(10).join(parts)}
 </svg>
 """
 
@@ -186,12 +285,14 @@ def main():
     OUT.mkdir(exist_ok=True)
     for name, t in THEMES.items():
         (OUT / f"banner-{name}.svg").write_text(banner(t), encoding="utf-8", newline="\n")
+        (OUT / f"now-{name}.svg").write_text(now_panel(t), encoding="utf-8", newline="\n")
+        (OUT / f"stack-{name}.svg").write_text(stack_panel(t), encoding="utf-8", newline="\n")
         for c in CARDS:
             (OUT / f"card-{c['slug']}-{name}.svg").write_text(card(t, c), encoding="utf-8", newline="\n")
     brand = OUT.parent / "brand"
     brand.mkdir(exist_ok=True)
     (brand / "linkedin-banner.svg").write_text(linkedin_banner(THEMES["dark"]), encoding="utf-8", newline="\n")
-    print(f"wrote {len(THEMES) * (1 + len(CARDS))} files to {OUT} and the LinkedIn banner to {brand}")
+    print(f"wrote {len(THEMES) * (3 + len(CARDS))} files to {OUT} and the LinkedIn banner to {brand}")
 
 
 if __name__ == "__main__":

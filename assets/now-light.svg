@@ -1,0 +1,52 @@
+<svg viewBox="0 0 1000 300" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Now: thesis at OTH Amberg-Weiden. Home Assistant sensors publish over MQTT to seven LangGraph agents; a multimodal LLM verifies each event before the Pepper robot acts. All inference runs locally.">
+  <style>
+    .packet { animation: run 4.5s cubic-bezier(.45,0,.55,1) infinite; }
+    @keyframes run { 0% { transform: translateX(0); opacity: 0; } 6% { opacity: 1; } 94% { opacity: 1; } 100% { transform: translateX(788px); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .packet { animation: none; opacity: 0; } }
+  </style>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#F3F7FB"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0.5" cy="0.35" r="0.6">
+      <stop offset="0" stop-color="#DCEAF2" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#F3F7FB" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="0.5" y="0.5" width="999" height="299" rx="18" fill="url(#bg)"/>
+  <rect x="0.5" y="0.5" width="999" height="299" rx="18" fill="url(#halo)"/>
+  <rect x="0.5" y="0.5" width="999" height="299" rx="18" fill="none" stroke="#0F2035" stroke-opacity="0.12"/>
+  <text x="28" y="46" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace" font-size="11.5" letter-spacing="2" fill="#5B7487">NOW  ·  THESIS AT OTH AMBERG-WEIDEN</text>
+  <circle cx="960" cy="42" r="4" fill="#C77A14"/>
+  <text x="948" y="46" text-anchor="end" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace" font-size="11" letter-spacing="2" fill="#C77A14">IN PROGRESS</text>
+  <text x="28" y="86" font-family="'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#0F2035">Seven agents between a smart home and a care robot</text>
+  <text x="28" y="116" font-family="'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" fill="#2F5E73">Sensor events pass through a LangGraph pipeline and a multimodal check before Pepper acts. Inference stays on-device.</text>
+  <line x1="106" y1="194.0" x2="894" y2="194.0" stroke="#3D7F94" stroke-opacity="0.45" stroke-width="1.5"/>
+  <circle class="packet" cx="106" cy="194.0" r="4" fill="#C77A14"/>
+  <path d="M216 190 l5 4 l-5 4" stroke="#3D7F94" stroke-opacity="0.7" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M413 190 l5 4 l-5 4" stroke="#3D7F94" stroke-opacity="0.7" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M610 190 l5 4 l-5 4" stroke="#3D7F94" stroke-opacity="0.7" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M807 190 l5 4 l-5 4" stroke="#3D7F94" stroke-opacity="0.7" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="28" y="162" width="156" height="64" rx="10" fill="#FFFFFF"/>
+  <rect x="28.5" y="162.5" width="155" height="63" rx="9.5" stroke="#3D7F94" stroke-opacity="0.4"/>
+  <text x="106" y="190" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="700" fill="#0F2035">Home Assistant</text>
+  <text x="106" y="209" text-anchor="middle" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace" font-size="10.5" letter-spacing="1.5" fill="#5B7487">IOT SENSORS</text>
+  <rect x="225" y="162" width="156" height="64" rx="10" fill="#FFFFFF"/>
+  <rect x="225.5" y="162.5" width="155" height="63" rx="9.5" stroke="#3D7F94" stroke-opacity="0.4"/>
+  <text x="303" y="190" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="700" fill="#0F2035">MQTT</text>
+  <text x="303" y="209" text-anchor="middle" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace" font-size="10.5" letter-spacing="1.5" fill="#5B7487">EVENT BUS</text>
+  <rect x="422" y="162" width="156" height="64" rx="10" fill="#FFFFFF"/>
+  <rect x="422" y="162" width="156" height="64" rx="10" fill="#C77A14" fill-opacity="0.10"/>
+  <rect x="422.5" y="162.5" width="155" height="63" rx="9.5" stroke="#C77A14" stroke-opacity="0.9"/>
+  <text x="500" y="190" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="700" fill="#0F2035">LangGraph</text>
+  <text x="500" y="209" text-anchor="middle" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace" font-size="10.5" letter-spacing="1.5" fill="#C77A14">7 AGENTS</text>
+  <rect x="619" y="162" width="156" height="64" rx="10" fill="#FFFFFF"/>
+  <rect x="619.5" y="162.5" width="155" height="63" rx="9.5" stroke="#3D7F94" stroke-opacity="0.4"/>
+  <text x="697" y="190" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="700" fill="#0F2035">Multimodal LLM</text>
+  <text x="697" y="209" text-anchor="middle" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace" font-size="10.5" letter-spacing="1.5" fill="#5B7487">VERIFY FIRST</text>
+  <rect x="816" y="162" width="156" height="64" rx="10" fill="#FFFFFF"/>
+  <rect x="816.5" y="162.5" width="155" height="63" rx="9.5" stroke="#3D7F94" stroke-opacity="0.4"/>
+  <text x="894" y="190" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="700" fill="#0F2035">Pepper</text>
+  <text x="894" y="209" text-anchor="middle" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace" font-size="10.5" letter-spacing="1.5" fill="#5B7487">ROBOT ACTION</text>
+  <text x="28" y="270" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace" font-size="11" letter-spacing="1.5" fill="#5B7487">FASTAPI · LANGGRAPH · OLLAMA · MQTT · HOME ASSISTANT · WEBOTS / PEPPER</text>
+</svg>

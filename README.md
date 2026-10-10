@@ -27,16 +27,22 @@ I build end-to-end AI systems, from multi-agent LLM pipelines to production ML. 
 
 <br/>
 
+## Now
+
+<a href="https://bocar-ba-portfolio.surge.sh/#projects"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/now-dark.svg"><img src="./assets/now-light.svg" width="100%" alt="Now: thesis at OTH Amberg-Weiden. Home Assistant sensors publish over MQTT to seven LangGraph agents; a multimodal LLM verifies each event before the Pepper robot acts. All inference runs locally."></picture></a>
+
+<br/>
+
 ## Selected work
 
 <p>
-<a href="https://bocar-ba-portfolio.surge.sh/#projects"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/card-eldercare-dark.svg"><img src="./assets/card-eldercare-light.svg" width="49%" alt="Elderly-Care Multi-Agent System: seven LangGraph agents linking smart-home sensors to a Pepper robot, fully on-device"></picture></a>
 <a href="https://bocar-ba-portfolio.surge.sh/#projects"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/card-finaia-dark.svg"><img src="./assets/card-finaia-light.svg" width="49%" alt="FINAIA: cost-sensitive XGBoost credit scoring, default recall up from 49% to 80.5%"></picture></a>
 <a href="https://bel-azur-travel.vercel.app"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/card-belazur-dark.svg"><img src="./assets/card-belazur-light.svg" width="49%" alt="Bel Azur Travel: full-stack Next.js travel-booking platform, live on Vercel"></picture></a>
 <a href="https://bocar-ba-portfolio.surge.sh/#projects"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/card-bocare-dark.svg"><img src="./assets/card-bocare-light.svg" width="49%" alt="BoCare AI: guardrailed RAG medical-triage demo with five urgency levels in English and French"></picture></a>
+<a href="https://bocar-ba-portfolio.surge.sh/#projects"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/card-promptlab-dark.svg"><img src="./assets/card-promptlab-light.svg" width="49%" alt="Prompt Engineering Assistant: LangChain agents that generate, optimise and red-team prompts, with three modes"></picture></a>
 </p>
 
-Also: a **Prompt Engineering Assistant** (LangChain agents that generate, optimise and red-team prompts) and **Network Anomaly Detection** (Isolation Forest on NSL-KDD). Write-ups and demos are on the [portfolio](https://bocar-ba-portfolio.surge.sh).
+Also: **Network Anomaly Detection**, an unsupervised Isolation Forest pipeline on NSL-KDD. Write-ups and demos are on the [portfolio](https://bocar-ba-portfolio.surge.sh).
 
 <br/>
 
@@ -54,13 +60,9 @@ Also: a **Prompt Engineering Assistant** (LangChain agents that generate, optimi
 
 ## Stack
 
-| | |
-|:--|:--|
-| **Languages** | Python &middot; TypeScript &middot; Java &middot; C &middot; SQL |
-| **GenAI / Agents** | LangGraph &middot; LangChain &middot; Ollama &middot; RAG &middot; multimodal LLMs &middot; prompt security |
-| **Machine learning** | PyTorch &middot; TensorFlow / Keras &middot; scikit-learn &middot; XGBoost &middot; OpenCV &middot; pandas |
-| **Backend / Infra** | FastAPI &middot; Pydantic &middot; Docker &middot; MQTT &middot; MongoDB &middot; Linux |
-| **Web / IoT** | Next.js &middot; Prisma &middot; Streamlit &middot; Home Assistant &middot; ESP8266 |
+<picture><source media="(prefers-color-scheme: dark)" srcset="./assets/stack-dark.svg"><img src="./assets/stack-light.svg" width="100%" alt="Tech stack: Python, TypeScript, Java, SQL, LangGraph, LangChain, Ollama, Gemini, PyTorch, TensorFlow, scikit-learn, OpenCV, FastAPI, Docker, MQTT, Home Assistant"></picture>
+
+<sub>Also: C &middot; XGBoost &middot; pandas &middot; Pydantic &middot; MongoDB &middot; Next.js &middot; Prisma &middot; Streamlit &middot; Linux &middot; ESP8266</sub>
 
 <br/>
 
