@@ -97,7 +97,7 @@ TIMELINE = [
     ("SUMMER 2024", "Pristini School of AI", "IoT Developer Intern"),
     ("JUL – OCT 2025", "Novation City", "Generative AI Intern"),
     ("DEC 25 – JAN 26", "Ubotica Technologies", "Applied ML Intern"),
-    ("2026 · THESIS 1.3", "OTH Amberg-Weiden", "AI Research Intern"),
+    ("MAR – SEP 2026", "OTH Amberg-Weiden", "Thesis · grade 1.3"),
     ("NEXT", "Your team", "Junior AI / ML Engineer"),
 ]
 
@@ -146,7 +146,7 @@ def cta_panel(t):
     return f"""<svg viewBox="0 0 {w} {h}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hiring for LLM agents or applied ML? Email bcrtob@gmail.com.">
 {frame(t, w, h)}
   <text x="36" y="66" font-family="{SANS}" font-size="26" font-weight="700" fill="{t['text']}">Hiring for LLM agents or applied ML?</text>
-  <text x="36" y="98" font-family="{SANS}" font-size="15" fill="{t['muted']}">Applied AI graduate, thesis graded 1.3. Based in Bavaria. Happy to walk you through any of it.</text>
+  <text x="36" y="98" font-family="{SANS}" font-size="15" fill="{t['muted']}">Applied AI graduate, thesis graded 1.3. Source code for any project is available on request.</text>
   <rect x="738" y="51" width="226" height="48" rx="24" fill="{t['accent']}"/>
   <text x="851" y="81" text-anchor="middle" font-family="{SANS}" font-size="15" font-weight="700" fill="{t['bg0']}">bcrtob@gmail.com  →</text>
 </svg>
@@ -183,6 +183,7 @@ CARDS = [
         "desc": "Cost-sensitive XGBoost over 24 engineered features, tuned for the cost of a missed default rather than accuracy.",
         "metric": "80.5%", "caption": "default recall, up from 49%",
         "stack": "XGBOOST · SCIKIT-LEARN · PANDAS",
+        "access": "CODE ON REQUEST",
     },
     {
         "slug": "belazur",
@@ -191,6 +192,7 @@ CARDS = [
         "desc": "Travel-booking platform with authentication, a relational data model and a production deployment.",
         "metric": "Live", "caption": "deployed on Vercel",
         "stack": "NEXT.JS · PRISMA · NEXTAUTH · TYPESCRIPT",
+        "access": "LIVE DEMO",
     },
     {
         "slug": "bocare",
@@ -199,6 +201,7 @@ CARDS = [
         "desc": "RAG triage assistant over public health sources, with jailbreak detection and hallucination filtering.",
         "metric": "5", "caption": "urgency levels, EN / FR",
         "stack": "RAG · LANGCHAIN · PYQT6",
+        "access": "CODE ON REQUEST",
     },
     {
         "slug": "promptlab",
@@ -207,25 +210,34 @@ CARDS = [
         "desc": "LangChain agents that generate, optimise and red-team prompts, with bias and injection checks built in.",
         "metric": "3", "caption": "modes: generate, optimise, test",
         "stack": "LANGCHAIN · STREAMLIT · PYTHON",
+        "access": "CODE ON REQUEST",
     },
 ]
 
-# The thesis pipeline drawn in the "Now" panel, left to right; the highlighted stage gets the accent.
+# The thesis pipeline at abstract level only (the implementation belongs to the OTH research
+# project); the highlighted stage gets the accent.
 PIPELINE = [
-    ("Home Assistant", "IOT SENSORS"),
-    ("MQTT", "EVENT BUS"),
-    ("LangGraph", "7 AGENTS"),
-    ("Multimodal LLM", "VERIFY FIRST"),
-    ("Pepper", "ROBOT ACTION"),
+    ("Sensor alarm", "MQTT EVENT"),
+    ("Patient context", "OWN BASELINE"),
+    ("Multimodal check", "CAMERA + VLM"),
+    ("Guardrail", "DETERMINISTIC"),
+    ("Pepper / carer", "ACT OR ALERT"),
 ]
 PIPELINE_FOCUS = 2
+
+# Headline results from the public thesis abstract: (value, caption).
+THESIS_RESULTS = [
+    ("96.8%", "routing accuracy, rule-based baseline 46.0%"),
+    ("60.3% → 1.6%", "false-positive escalations, ~37x fewer"),
+    ("0", "emergencies missed across 63 labelled cases"),
+]
 
 # (group label, [(simple-icons slug, label), ...]); icons are cached in scripts/icons/.
 STACK = [
     ("LANGUAGES", [("python", "Python"), ("typescript", "TypeScript"), ("openjdk", "Java"), ("postgresql", "SQL")]),
-    ("GENAI / AGENTS", [("langgraph", "LangGraph"), ("langchain", "LangChain"), ("ollama", "Ollama"), ("googlegemini", "Gemini")]),
+    ("GENAI / AGENTS", [("langgraph", "LangGraph"), ("langchain", "LangChain"), ("ollama", "Ollama"), ("qwen", "Qwen2.5-VL")]),
     ("MACHINE LEARNING", [("pytorch", "PyTorch"), ("tensorflow", "TensorFlow"), ("scikitlearn", "scikit-learn"), ("opencv", "OpenCV")]),
-    ("BACKEND / IOT", [("fastapi", "FastAPI"), ("docker", "Docker"), ("mqtt", "MQTT"), ("homeassistant", "Home Assistant")]),
+    ("BACKEND / MLOPS", [("fastapi", "FastAPI"), ("pydantic", "Pydantic"), ("docker", "Docker"), ("mqtt", "MQTT")]),
 ]
 ICONS = Path(__file__).resolve().parent / "icons"
 SIMPLE_ICONS = "https://cdn.jsdelivr.net/npm/simple-icons@16.34.0/icons/{}.svg"
@@ -248,13 +260,14 @@ def card(t, c):
   <text x="28" y="194" font-family="{SANS}"><tspan font-size="30" font-weight="700" fill="{t['accent']}">{escape(c['metric'])}</tspan><tspan dx="10" font-size="13" fill="{t['subtle']}">{escape(c['caption'])}</tspan></text>
   <line x1="28" y1="214" x2="{CARD_W - 28}" y2="214" stroke="{t['border']}" stroke-opacity="{t['border_op']}"/>
   <text x="28" y="238" font-family="{MONO}" font-size="11" letter-spacing="1.5" fill="{t['subtle']}">{escape(c['stack'])}</text>
+  <text x="{CARD_W - 28}" y="238" text-anchor="end" font-family="{MONO}" font-size="11" letter-spacing="1.5" fill="{t['accent']}">{escape(c['access'])}</text>
 </svg>
 """
 
 
 def now_panel(t):
-    w, h = 1000, 300
-    bw, bh, y = 156, 64, 162
+    w, h = 1000, 372
+    bw, bh, y = 160, 64, 146
     gap = (w - 56 - bw * len(PIPELINE)) / (len(PIPELINE) - 1)
     xs = [28 + i * (bw + gap) for i in range(len(PIPELINE))]
     mid = y + bh / 2
@@ -273,24 +286,36 @@ def now_panel(t):
             f'  <text x="{x + bw / 2:.0f}" y="{y + 28}" text-anchor="middle" font-family="{SANS}" font-size="14.5" font-weight="700" fill="{t["text"]}">{escape(title)}</text>\n'
             f'  <text x="{x + bw / 2:.0f}" y="{y + 47}" text-anchor="middle" font-family="{MONO}" font-size="10.5" letter-spacing="1.5" fill="{t["accent"] if focus else t["subtle"]}">{escape(sub)}</text>'
         )
+    results = "\n".join(
+        f'  <text x="{28 + i * 320}" y="268" font-family="{SANS}" font-size="30" font-weight="700" fill="{t["accent"] if i == 1 else t["text"]}">{escape(v)}</text>\n'
+        f'  <text x="{28 + i * 320}" y="292" font-family="{SANS}" font-size="13" fill="{t["subtle"]}">{escape(c)}</text>'
+        for i, (v, c) in enumerate(THESIS_RESULTS)
+    )
     span = xs[-1] - xs[0]
-    return f"""<svg viewBox="0 0 {w} {h}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Thesis at OTH Amberg-Weiden, graded 1.3, mention Excellent. Home Assistant sensors publish over MQTT to seven LangGraph agents; a multimodal LLM verifies each event before the Pepper robot acts. All inference runs locally.">
+    label = ("Bachelor's thesis at OTH Amberg-Weiden, grade 1.3, mention Excellent: a cognitive verification layer for "
+             "elderly-care robots. Seven LangGraph agents check each smart-home sensor alarm against the patient's own "
+             "history and a camera image, then a deterministic guardrail approves any action by the Pepper robot or "
+             "alert to a caregiver. " + "; ".join(f"{v} {c}" for v, c in THESIS_RESULTS) + ". Synthetic, pilot-scale evaluation.")
+    return f"""<svg viewBox="0 0 {w} {h}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="{escape(label)}">
   <style>
     .packet {{ animation: run 4.5s cubic-bezier(.45,0,.55,1) infinite; }}
     @keyframes run {{ 0% {{ transform: translateX(0); opacity: 0; }} 6% {{ opacity: 1; }} 94% {{ opacity: 1; }} 100% {{ transform: translateX({span:.0f}px); opacity: 0; }} }}
     @media (prefers-reduced-motion: reduce) {{ .packet {{ animation: none; opacity: 0; }} }}
   </style>
 {frame(t, w, h)}
-  <text x="28" y="46" font-family="{MONO}" font-size="11.5" letter-spacing="2" fill="{t['subtle']}">THESIS  ·  OTH AMBERG-WEIDEN</text>
+  <text x="28" y="46" font-family="{MONO}" font-size="11.5" letter-spacing="2" fill="{t['subtle']}">BACHELOR'S THESIS  ·  OTH AMBERG-WEIDEN</text>
   <circle cx="{w - 40}" cy="42" r="4" fill="{t['accent']}"/>
   <text x="{w - 52}" y="46" text-anchor="end" font-family="{MONO}" font-size="11" letter-spacing="2" fill="{t['accent']}">GRADE 1.3  ·  MENTION EXCELLENT</text>
-  <text x="28" y="86" font-family="{SANS}" font-size="26" font-weight="700" fill="{t['text']}">Seven agents between a smart home and a care robot</text>
-  <text x="28" y="116" font-family="{SANS}" font-size="15" fill="{t['muted']}">Sensor events pass through a LangGraph pipeline and a multimodal check before Pepper acts. Inference stays on-device.</text>
+  <text x="28" y="84" font-family="{SANS}" font-size="26" font-weight="700" fill="{t['text']}">A cognitive verification layer for elderly-care robots</text>
+  <text x="28" y="112" font-family="{SANS}" font-size="14.5" fill="{t['muted']}">Seven LangGraph agents check every smart-home alarm before it reaches a caregiver or the robot. Local models only.</text>
   <line x1="{xs[0] + bw / 2:.0f}" y1="{mid}" x2="{xs[-1] + bw / 2:.0f}" y2="{mid}" stroke="{t['line']}" stroke-opacity="0.45" stroke-width="1.5"/>
   <circle class="packet" cx="{xs[0] + bw / 2:.0f}" cy="{mid}" r="4" fill="{t['accent']}"/>
 {arrows}
 {chr(10).join(boxes)}
-  <text x="28" y="270" font-family="{MONO}" font-size="11" letter-spacing="1.5" fill="{t['subtle']}">FASTAPI · LANGGRAPH · OLLAMA · MQTT · HOME ASSISTANT · WEBOTS / PEPPER</text>
+{results}
+  <line x1="28" y1="316" x2="{w - 28}" y2="316" stroke="{t['border']}" stroke-opacity="{t['border_op']}"/>
+  <text x="28" y="342" font-family="{MONO}" font-size="11" letter-spacing="1.5" fill="{t['subtle']}">LANGGRAPH · FASTAPI · PYDANTIC · OLLAMA · QWEN2.5-VL · LLAMA 3.1 · MQTT · SQLITE · DOCKER</text>
+  <text x="{w - 28}" y="342" text-anchor="end" font-family="{MONO}" font-size="11" letter-spacing="1.5" fill="{t['accent']}">SYNTHETIC PILOT DATA</text>
 </svg>
 """
 

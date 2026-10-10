@@ -19,4 +19,5 @@
   <text x="28" y="194" font-family="'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif"><tspan font-size="30" font-weight="700" fill="#C77A14">3</tspan><tspan dx="10" font-size="13" fill="#5B7487">modes: generate, optimise, test</tspan></text>
   <line x1="28" y1="214" x2="452" y2="214" stroke="#0F2035" stroke-opacity="0.12"/>
   <text x="28" y="238" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace" font-size="11" letter-spacing="1.5" fill="#5B7487">LANGCHAIN · STREAMLIT · PYTHON</text>
+  <text x="452" y="238" text-anchor="end" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace" font-size="11" letter-spacing="1.5" fill="#C77A14">CODE ON REQUEST</text>
 </svg>

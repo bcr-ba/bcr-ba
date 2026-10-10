@@ -21,7 +21,7 @@
 
 <br/>
 
-I build end-to-end AI systems, from multi-agent LLM pipelines to production ML. I lean toward **local, privacy-preserving inference** and evaluation I can defend with numbers. I hold a **Bachelor of Applied AI** from Pristini School of AI (Tunisia). I did my thesis at **OTH Amberg-Weiden** in Germany, where it was graded **1.3** (German scale, 1.0 is best), and it received the mention **Excellent** at my home university.
+I build end-to-end AI systems, from multi-agent LLM pipelines to production ML. I lean toward **local, privacy-preserving inference** and evaluation I can defend with numbers. I hold a **Bachelor of Applied AI** from Pristini School of AI (Tunisia). My thesis, written in the HealthTech Research Group at **OTH Amberg-Weiden** (Germany), was defended there on 23 September 2026 with a grade of **1.3** (German scale, 1.0 is best), and at Pristini on 2 October 2026 with the mention **Excellent**.
 
 **Open to junior AI / ML engineering roles**: LLM agents, applied ML, GenAI in production.
 
@@ -29,9 +29,15 @@ I build end-to-end AI systems, from multi-agent LLM pipelines to production ML. 
 
 ## Thesis
 
-<a href="https://bocar-ba-portfolio.surge.sh/#projects"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/now-dark.svg"><img src="./assets/now-light.svg" width="100%" alt="Thesis at OTH Amberg-Weiden, graded 1.3, mention Excellent. Home Assistant sensors publish over MQTT to seven LangGraph agents; a multimodal LLM verifies each event before the Pepper robot acts. All inference runs locally."></picture></a>
+**Multi-Agent System for Elderly Care Home Robots in a Smart Home Environment**
 
-<br/>
+Smart-home sensors can notice that an elderly person's routine has changed, but not whether it matters, so caregivers drown in false alarms. My thesis adds a verification step: before any alert or robot action, agents compare the alarm with the person's own behavioural history and a camera image, and a deterministic guardrail has the final word on anything that reaches the patient.
+
+<a href="mailto:bcrtob@gmail.com?subject=Thesis%20walkthrough"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/now-dark.svg"><img src="./assets/now-light.svg" width="100%" alt="Thesis panel: sensor alarm, patient context, multimodal check, deterministic guardrail, then Pepper or caregiver. 96.8% routing accuracy versus 46.0% for a rule-based baseline; false-positive escalations cut from 60.3% to 1.6%; no emergency missed across 63 labelled synthetic cases."></picture></a>
+
+<sub>Results come from a pilot-scale evaluation on synthetic data and show technical feasibility, not clinical effectiveness. The code belongs to the OTH research project and is not public; I'm happy to walk you through the architecture and results, and to share code where the group allows it. <a href="mailto:bcrtob@gmail.com?subject=Thesis%20walkthrough">Get in touch</a>.</sub>
+
+<br/><br/>
 
 ## Selected work
 
@@ -44,11 +50,13 @@ I build end-to-end AI systems, from multi-agent LLM pipelines to production ML. 
 
 Also: **Network Anomaly Detection**, an unsupervised Isolation Forest pipeline on NSL-KDD. Write-ups and demos are on the [portfolio](https://bocar-ba-portfolio.surge.sh).
 
+**Source code** for these projects is kept private. If you're evaluating me for a role, [email me](mailto:bcrtob@gmail.com?subject=Source%20code%20request) with the project name and I'll share access or walk you through it.
+
 <br/>
 
 ## Experience
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="./assets/timeline-dark.svg"><img src="./assets/timeline-light.svg" width="100%" alt="Experience timeline: BI intern at Banque Centrale de Mauritanie (2023, 2024); IoT developer intern at Pristini School of AI (summer 2024); generative AI intern at Novation City (Jul to Oct 2025); applied ML intern at Ubotica Technologies (Dec 2025 to Jan 2026); AI research intern at OTH Amberg-Weiden, thesis graded 1.3 (2026); next, a junior AI / ML engineering role."></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="./assets/timeline-dark.svg"><img src="./assets/timeline-light.svg" width="100%" alt="Experience timeline: BI intern at Banque Centrale de Mauritanie (2023, 2024); IoT developer intern at Pristini School of AI (summer 2024); generative AI intern at Novation City (Jul to Oct 2025); applied ML intern at Ubotica Technologies (Dec 2025 to Jan 2026); AI research intern at OTH Amberg-Weiden, thesis graded 1.3 (March to September 2026); next, a junior AI / ML engineering role."></picture>
 
 <details>
 <summary><b>What I did in each role</b></summary>
@@ -56,7 +64,7 @@ Also: **Network Anomaly Detection**, an unsupervised Isolation Forest pipeline o
 
 | Period | Role | Focus |
 |:--|:--|:--|
-| From Mar 2026 | **AI Research Intern** · OTH Amberg-Weiden | Thesis, graded 1.3: multi-agent orchestration across IoT sensors, Pepper / Webots and multimodal LLMs |
+| Mar – Sep 2026 | **AI Research Intern** · OTH Amberg-Weiden, HealthTech Research Group | Thesis (grade 1.3): seven-agent verification layer between smart-home sensor alarms and a Pepper robot; LangGraph, FastAPI, local Qwen2.5-VL and Llama 3.1 via Ollama, CI with GitHub Actions |
 | Dec 2025 – Jan 2026 | **Applied ML Intern** · Ubotica Technologies | CVAT datasets; few-shot, one-shot and meta-learning (MAML) for inspection models |
 | Jul – Oct 2025 | **Generative AI Intern** · Novation City | EN/FR LLM services for ESG and KPI reporting; benchmarked Gemini, Mistral and Ollama; direct LLM vs RAG; prompt-injection defences |
 | Summer 2024 | **IoT Developer Intern** · Pristini School of AI | ESP8266 + Firebase smart-home system with a mobile monitoring app |
@@ -66,21 +74,30 @@ Also: **Network Anomaly Detection**, an unsupervised Isolation Forest pipeline o
 
 <br/>
 
+## Education
+
+| Date | Degree | Result |
+|:--|:--|:--|
+| Oct 2026 | **Bachelor of Applied AI** · Pristini School of AI, Tunisia | Defended 2 Oct 2026, mention **Excellent** |
+| Sep 2026 | **Bachelor's thesis** · OTH Amberg-Weiden, Germany (Artificial Intelligence International) | Defended 23 Sep 2026, grade **1.3** |
+
+<br/>
+
 ## Stack
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="./assets/stack-dark.svg"><img src="./assets/stack-light.svg" width="100%" alt="Tech stack: Python, TypeScript, Java, SQL, LangGraph, LangChain, Ollama, Gemini, PyTorch, TensorFlow, scikit-learn, OpenCV, FastAPI, Docker, MQTT, Home Assistant"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="./assets/stack-dark.svg"><img src="./assets/stack-light.svg" width="100%" alt="Tech stack: Python, TypeScript, Java, SQL, LangGraph, LangChain, Ollama, Qwen2.5-VL, PyTorch, TensorFlow, scikit-learn, OpenCV, FastAPI, Pydantic, Docker, MQTT"></picture>
 
-<sub>Also: C &middot; XGBoost &middot; pandas &middot; Pydantic &middot; MongoDB &middot; Next.js &middot; Prisma &middot; Streamlit &middot; Linux &middot; ESP8266</sub>
+<sub>Also: C &middot; XGBoost &middot; pandas &middot; Gemini &middot; LangSmith &middot; Giskard &middot; SQLite &middot; MongoDB &middot; GitHub Actions &middot; Next.js &middot; Prisma &middot; Streamlit &middot; Linux &middot; ESP8266</sub>
 
 <br/>
 
 ## How I work
 
-**Measure first.** Every model ships with a baseline, a metric the business actually cares about, and an honest error analysis.
+**Measure against a baseline.** My thesis system only counts as better because it was scored against a rule-based baseline on the same labelled cases. Every model I ship gets a baseline, a metric that matters, and an honest error analysis.
 
 **Local by default.** Sensitive data shouldn't leave the device, so I try Ollama and on-prem stacks before cloud APIs.
 
-**Guardrails are part of the build.** Input sanitisation, injection defences and fallbacks go in from the start.
+**Deterministic where it counts.** Safety-critical decisions stay in plain, testable logic; language models handle judgment calls only, and their output passes a guardrail before it reaches anyone.
 
 <br/>
 
