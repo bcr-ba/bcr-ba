@@ -15,21 +15,21 @@
 <a href="mailto:bcrtob@gmail.com"><b>Email</b></a>
 </p>
 
-<sub>Bavaria, Germany &nbsp;&middot;&nbsp; English, French &nbsp;&middot;&nbsp; B.Sc. Applied AI, October 2026</sub>
+<sub>Bavaria, Germany &nbsp;&middot;&nbsp; English, French &nbsp;&middot;&nbsp; Bachelor of Applied AI, 2026</sub>
 
 </div>
 
 <br/>
 
-I build end-to-end AI systems, from multi-agent LLM pipelines to production ML. I lean toward **local, privacy-preserving inference** and evaluation I can defend with numbers. I'm a final-year Applied AI student at Pristini School of AI (Tunisia), finishing my thesis at **OTH Amberg-Weiden** in Germany.
+I build end-to-end AI systems, from multi-agent LLM pipelines to production ML. I lean toward **local, privacy-preserving inference** and evaluation I can defend with numbers. I hold a **Bachelor of Applied AI** from Pristini School of AI (Tunisia). I did my thesis at **OTH Amberg-Weiden** in Germany, where it was graded **1.3** (German scale, 1.0 is best), and it received the mention **Excellent** at my home university.
 
-**Open to junior AI / ML engineering roles from late 2026**: LLM agents, applied ML, GenAI in production.
+**Open to junior AI / ML engineering roles**: LLM agents, applied ML, GenAI in production.
 
 <br/>
 
-## Now
+## Thesis
 
-<a href="https://bocar-ba-portfolio.surge.sh/#projects"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/now-dark.svg"><img src="./assets/now-light.svg" width="100%" alt="Now: thesis at OTH Amberg-Weiden. Home Assistant sensors publish over MQTT to seven LangGraph agents; a multimodal LLM verifies each event before the Pepper robot acts. All inference runs locally."></picture></a>
+<a href="https://bocar-ba-portfolio.surge.sh/#projects"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/now-dark.svg"><img src="./assets/now-light.svg" width="100%" alt="Thesis at OTH Amberg-Weiden, graded 1.3, mention Excellent. Home Assistant sensors publish over MQTT to seven LangGraph agents; a multimodal LLM verifies each event before the Pepper robot acts. All inference runs locally."></picture></a>
 
 <br/>
 
@@ -48,7 +48,7 @@ Also: **Network Anomaly Detection**, an unsupervised Isolation Forest pipeline o
 
 ## Experience
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="./assets/timeline-dark.svg"><img src="./assets/timeline-light.svg" width="100%" alt="Experience timeline: BI intern at Banque Centrale de Mauritanie (2023, 2024); IoT developer intern at Pristini School of AI (summer 2024); generative AI intern at Novation City (Jul to Oct 2025); applied ML intern at Ubotica Technologies (Dec 2025 to Jan 2026); AI research intern at OTH Amberg-Weiden (Mar 2026 to now); next, a junior AI / ML engineering role from late 2026."></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="./assets/timeline-dark.svg"><img src="./assets/timeline-light.svg" width="100%" alt="Experience timeline: BI intern at Banque Centrale de Mauritanie (2023, 2024); IoT developer intern at Pristini School of AI (summer 2024); generative AI intern at Novation City (Jul to Oct 2025); applied ML intern at Ubotica Technologies (Dec 2025 to Jan 2026); AI research intern at OTH Amberg-Weiden, thesis graded 1.3 (2026); next, a junior AI / ML engineering role."></picture>
 
 <details>
 <summary><b>What I did in each role</b></summary>
@@ -56,7 +56,7 @@ Also: **Network Anomaly Detection**, an unsupervised Isolation Forest pipeline o
 
 | Period | Role | Focus |
 |:--|:--|:--|
-| Mar 2026 – now | **AI Research Intern** · OTH Amberg-Weiden | Thesis: multi-agent orchestration across IoT sensors, Pepper / Webots and multimodal LLMs |
+| From Mar 2026 | **AI Research Intern** · OTH Amberg-Weiden | Thesis, graded 1.3: multi-agent orchestration across IoT sensors, Pepper / Webots and multimodal LLMs |
 | Dec 2025 – Jan 2026 | **Applied ML Intern** · Ubotica Technologies | CVAT datasets; few-shot, one-shot and meta-learning (MAML) for inspection models |
 | Jul – Oct 2025 | **Generative AI Intern** · Novation City | EN/FR LLM services for ESG and KPI reporting; benchmarked Gemini, Mistral and Ollama; direct LLM vs RAG; prompt-injection defences |
 | Summer 2024 | **IoT Developer Intern** · Pristini School of AI | ESP8266 + Firebase smart-home system with a mobile monitoring app |

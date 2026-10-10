@@ -1,4 +1,4 @@
-"""Generate the profile's SVG assets (banner, now panel, cards, stack, timeline, CTA) in dark and light themes.
+"""Generate the profile's SVG assets (banner, thesis panel, cards, stack, timeline, CTA) in dark and light themes.
 
 Run from the repo root:  python scripts/build_assets.py
 Edit THEMES / CARDS below, re-run, commit the files in assets/.
@@ -80,14 +80,16 @@ def banner(t):
   <circle class="packet" cx="300" cy="232" r="3.5" fill="{t['accent']}"/>
   <text x="500" y="272" text-anchor="middle" font-family="{MONO}" font-size="12" letter-spacing="3" fill="{t['subtle']}">MULTI-AGENT SYSTEMS  ·  LOCAL INFERENCE  ·  EVALUATION</text>
   <text x="32" y="46" font-family="{MONO}" font-size="11" letter-spacing="2" fill="{t['subtle']}">BAVARIA, GERMANY</text>
-  <rect x="720.5" y="26.5" width="251" height="29" rx="14.5" fill="{t['accent']}" fill-opacity="0.10" stroke="{t['accent']}" stroke-opacity="0.45"/>
-  <circle class="pulse" cx="740" cy="41" r="3.5" fill="{t['accent']}"/>
-  <text x="754" y="45" font-family="{MONO}" font-size="11" letter-spacing="1.5" fill="{t['accent']}">{AVAILABILITY}</text>
+  <rect x="{PILL_X + 0.5}" y="26.5" width="{971 - PILL_X}" height="29" rx="14.5" fill="{t['accent']}" fill-opacity="0.10" stroke="{t['accent']}" stroke-opacity="0.45"/>
+  <circle class="pulse" cx="{PILL_X + 20}" cy="41" r="3.5" fill="{t['accent']}"/>
+  <text x="{PILL_X + 34}" y="45" font-family="{MONO}" font-size="11" letter-spacing="1.5" fill="{t['accent']}">{AVAILABILITY}</text>
 </svg>
 """
 
 
-AVAILABILITY = "OPEN TO ROLES · LATE 2026"
+AVAILABILITY = "OPEN TO AI / ML ROLES"
+# Monospace advance at 11px plus letter-spacing, so the pill hugs its label.
+PILL_X = 972 - round(len(AVAILABILITY) * 8.1) - 52
 
 # (date, organisation, role); evenly spaced, the last entry is the open next step.
 TIMELINE = [
@@ -95,8 +97,8 @@ TIMELINE = [
     ("SUMMER 2024", "Pristini School of AI", "IoT Developer Intern"),
     ("JUL – OCT 2025", "Novation City", "Generative AI Intern"),
     ("DEC 25 – JAN 26", "Ubotica Technologies", "Applied ML Intern"),
-    ("MAR 2026 – NOW", "OTH Amberg-Weiden", "AI Research Intern"),
-    ("LATE 2026", "Next: your team", "Junior AI / ML Engineer"),
+    ("2026 · THESIS 1.3", "OTH Amberg-Weiden", "AI Research Intern"),
+    ("NEXT", "Your team", "Junior AI / ML Engineer"),
 ]
 
 
@@ -124,7 +126,7 @@ def timeline_panel(t):
             f'  <text x="{x:.0f}" y="138" text-anchor="middle" font-family="{SANS}" font-size="14" font-weight="700" fill="{t["text"]}">{escape(org)}</text>\n'
             f'  <text x="{x:.0f}" y="159" text-anchor="middle" font-family="{SANS}" font-size="12.5" fill="{t["muted"]}">{escape(role)}</text>'
         )
-    label = "; ".join(f"{d}: {r} at {o}" for d, o, r in TIMELINE[:-1]) + f"; next, {TIMELINE[-1][2]} from {TIMELINE[-1][0].lower()}."
+    label = "; ".join(f"{d}: {r} at {o}" for d, o, r in TIMELINE[:-1]) + f"; next: {TIMELINE[-1][2]}."
     return f"""<svg viewBox="0 0 {w} {h}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Experience timeline. {escape(label)}">{MOTION_CSS}
 {frame(t, w, h)}
   <defs>
@@ -144,7 +146,7 @@ def cta_panel(t):
     return f"""<svg viewBox="0 0 {w} {h}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hiring for LLM agents or applied ML? Email bcrtob@gmail.com.">
 {frame(t, w, h)}
   <text x="36" y="66" font-family="{SANS}" font-size="26" font-weight="700" fill="{t['text']}">Hiring for LLM agents or applied ML?</text>
-  <text x="36" y="98" font-family="{SANS}" font-size="15" fill="{t['muted']}">Graduating October 2026, based in Bavaria. Happy to walk you through any of these systems.</text>
+  <text x="36" y="98" font-family="{SANS}" font-size="15" fill="{t['muted']}">Applied AI graduate, thesis graded 1.3. Based in Bavaria. Happy to walk you through any of it.</text>
   <rect x="738" y="51" width="226" height="48" rx="24" fill="{t['accent']}"/>
   <text x="851" y="81" text-anchor="middle" font-family="{SANS}" font-size="15" font-weight="700" fill="{t['bg0']}">bcrtob@gmail.com  →</text>
 </svg>
@@ -272,16 +274,16 @@ def now_panel(t):
             f'  <text x="{x + bw / 2:.0f}" y="{y + 47}" text-anchor="middle" font-family="{MONO}" font-size="10.5" letter-spacing="1.5" fill="{t["accent"] if focus else t["subtle"]}">{escape(sub)}</text>'
         )
     span = xs[-1] - xs[0]
-    return f"""<svg viewBox="0 0 {w} {h}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Now: thesis at OTH Amberg-Weiden. Home Assistant sensors publish over MQTT to seven LangGraph agents; a multimodal LLM verifies each event before the Pepper robot acts. All inference runs locally.">
+    return f"""<svg viewBox="0 0 {w} {h}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Thesis at OTH Amberg-Weiden, graded 1.3, mention Excellent. Home Assistant sensors publish over MQTT to seven LangGraph agents; a multimodal LLM verifies each event before the Pepper robot acts. All inference runs locally.">
   <style>
     .packet {{ animation: run 4.5s cubic-bezier(.45,0,.55,1) infinite; }}
     @keyframes run {{ 0% {{ transform: translateX(0); opacity: 0; }} 6% {{ opacity: 1; }} 94% {{ opacity: 1; }} 100% {{ transform: translateX({span:.0f}px); opacity: 0; }} }}
     @media (prefers-reduced-motion: reduce) {{ .packet {{ animation: none; opacity: 0; }} }}
   </style>
 {frame(t, w, h)}
-  <text x="28" y="46" font-family="{MONO}" font-size="11.5" letter-spacing="2" fill="{t['subtle']}">NOW  ·  THESIS AT OTH AMBERG-WEIDEN</text>
+  <text x="28" y="46" font-family="{MONO}" font-size="11.5" letter-spacing="2" fill="{t['subtle']}">THESIS  ·  OTH AMBERG-WEIDEN</text>
   <circle cx="{w - 40}" cy="42" r="4" fill="{t['accent']}"/>
-  <text x="{w - 52}" y="46" text-anchor="end" font-family="{MONO}" font-size="11" letter-spacing="2" fill="{t['accent']}">IN PROGRESS</text>
+  <text x="{w - 52}" y="46" text-anchor="end" font-family="{MONO}" font-size="11" letter-spacing="2" fill="{t['accent']}">GRADE 1.3  ·  MENTION EXCELLENT</text>
   <text x="28" y="86" font-family="{SANS}" font-size="26" font-weight="700" fill="{t['text']}">Seven agents between a smart home and a care robot</text>
   <text x="28" y="116" font-family="{SANS}" font-size="15" fill="{t['muted']}">Sensor events pass through a LangGraph pipeline and a multimodal check before Pepper acts. Inference stays on-device.</text>
   <line x1="{xs[0] + bw / 2:.0f}" y1="{mid}" x2="{xs[-1] + bw / 2:.0f}" y2="{mid}" stroke="{t['line']}" stroke-opacity="0.45" stroke-width="1.5"/>
