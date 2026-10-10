@@ -1,15 +1,15 @@
 name: activity
 
-# Redraws the 3D contribution graph in the profile's colours and publishes it to
-# the `output` branch, which the README reads from. Nothing is committed to main,
-# so the bot never shows up in the commit history or the contributors list.
+# Redraws the 3D contribution graph with scripts/build_activity.py and publishes
+# it to the `output` branch, which the README reads from. Nothing is committed to
+# main, so the bot never shows up in the commit history or the contributors list.
 on:
   schedule:
     - cron: "0 3 * * *"
   workflow_dispatch:
   push:
     branches: [main]
-    paths: [.github/workflows/activity.yml, .github/profile-3d.json]
+    paths: [.github/workflows/activity.yml, scripts/build_activity.py, scripts/build_assets.py]
 
 permissions:
   contents: write
@@ -21,22 +21,26 @@ concurrency:
 jobs:
   render:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
 
-      - uses: yoshi389111/github-profile-3d-contrib@v0.9.3
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          USERNAME: ${{ github.repository_owner }}
-          SETTING_JSON: .github/profile-3d.json
-
-      - uses: crazy-max/ghaction-github-pages@v4
+      - uses: actions/setup-python@v7
         with:
-          target_branch: output
-          build_dir: profile-3d-contrib
-          keep_history: false
-          commit_message: "chore(activity): redraw contribution graph"
-          jekyll: false
+          python-version: "3.12"
+
+      - name: Draw graph
+        working-directory: scripts
+        run: python build_activity.py --user "${{ github.repository_owner }}" --out ../dist
+
+      - name: Publish to output branch
+        working-directory: dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git init -q -b output
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -qm "chore(activity): redraw contribution graph"
+          git push -qf "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" output
