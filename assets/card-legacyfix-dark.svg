@@ -1,0 +1,23 @@
+<svg viewBox="0 0 480 260" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Legacy Fix. Directed and audited an AI coding agent on a 2013-era service: 5 bugs fixed, every agent patch reviewed. 3,000 km of early warning restored per car.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0A1729"/><stop offset="1" stop-color="#0F2035"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0.5" cy="0.35" r="0.6">
+      <stop offset="0" stop-color="#1E4A63" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#0F2035" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="0.5" y="0.5" width="479" height="259" rx="14" fill="url(#bg)"/>
+  <rect x="0.5" y="0.5" width="479" height="259" rx="14" fill="url(#halo)"/>
+  <rect x="0.5" y="0.5" width="479" height="259" rx="14" fill="none" stroke="#74B4C7" stroke-opacity="0.18"/>
+  <text x="28" y="44" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace" font-size="11" letter-spacing="2" fill="#6E8AA0">AI-AGENT AUDIT  ·  PROOV x IBM BOB</text>
+  <path d="M440 34 l10 -10 M442 24 h8 v8" stroke="#6E8AA0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="28" y="80" font-family="'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="23" font-weight="700" fill="#EDF3F9">The Legacy Fix</text>
+  <text x="28" y="110" font-family="'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" fill="#9FC1CE">Directed and audited an AI coding agent on a 2013-era</text>
+  <text x="28" y="131" font-family="'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14.5" fill="#9FC1CE">service: 5 bugs fixed, every agent patch reviewed.</text>
+  <text x="28" y="194" font-family="'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif"><tspan font-size="30" font-weight="700" fill="#F2AC4E">3,000 km</tspan><tspan dx="10" font-size="13" fill="#6E8AA0">of early warning restored per car</tspan></text>
+  <line x1="28" y1="214" x2="452" y2="214" stroke="#74B4C7" stroke-opacity="0.18"/>
+  <text x="28" y="238" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace" font-size="11" letter-spacing="1.5" fill="#6E8AA0">PYTHON · PYTEST · PANDAS</text>
+  <text x="452" y="238" text-anchor="end" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace" font-size="11" letter-spacing="1.5" fill="#F2AC4E">PUBLIC REPO</text>
+</svg>

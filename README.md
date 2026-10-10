@@ -42,15 +42,23 @@ Smart-home sensors can notice that an elderly person's routine has changed, but 
 ## Selected work
 
 <p>
+<a href="https://github.com/bcr-ba/proov-km-waechter-fix"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/card-legacyfix-dark.svg"><img src="./assets/card-legacyfix-light.svg" width="49%" alt="The Legacy Fix: directed and audited an AI coding agent on a legacy fleet-maintenance service; fixed five bugs including a floor division that removed 3,000 km of early warning per car. Public repository."></picture></a>
 <a href="https://bocar-ba-portfolio.surge.sh/#projects"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/card-finaia-dark.svg"><img src="./assets/card-finaia-light.svg" width="49%" alt="FINAIA: cost-sensitive XGBoost credit scoring, default recall up from 49% to 80.5%"></picture></a>
 <a href="https://bel-azur-travel.vercel.app"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/card-belazur-dark.svg"><img src="./assets/card-belazur-light.svg" width="49%" alt="Bel Azur Travel: full-stack Next.js travel-booking platform, live on Vercel"></picture></a>
 <a href="https://bocar-ba-portfolio.surge.sh/#projects"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/card-bocare-dark.svg"><img src="./assets/card-bocare-light.svg" width="49%" alt="BoCare AI: guardrailed RAG medical-triage demo with five urgency levels in English and French"></picture></a>
-<a href="https://bocar-ba-portfolio.surge.sh/#projects"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/card-promptlab-dark.svg"><img src="./assets/card-promptlab-light.svg" width="49%" alt="Prompt Engineering Assistant: LangChain agents that generate, optimise and red-team prompts, with three modes"></picture></a>
 </p>
 
-Also: **Network Anomaly Detection**, an unsupervised Isolation Forest pipeline on NSL-KDD. Write-ups and demos are on the [portfolio](https://bocar-ba-portfolio.surge.sh).
+<details>
+<summary><b>The Legacy Fix in one paragraph</b></summary>
+<br/>
 
-**Source code** for these projects is kept private. If you're evaluating me for a role, [email me](mailto:bcrtob@gmail.com?subject=Source%20code%20request) with the project name and I'll share access or walk you through it.
+A maintenance service used integer division for a ratio. It floored every partial value to zero, which silently removed the whole 80 to 99.9 percent warning window: three thousand kilometres of early warning per car, across six thousand cars (a fictional fleet built for the ProoV challenge). I found it from a failing edge case, fixed it, and locked it down with tests. I also reviewed the AI agent's patch and rejected the changes that quietly put the bug back. A follow-up analysis of 120 labelled cars showed that kilometres since last service predicts breakdowns (r = 0.40) while odometer and age, the obvious guesses, are noise; a simple risk score surfaced half of all breakdowns in the top 17% of the fleet. Every fix is a separate, explained commit: [browse the repo](https://github.com/bcr-ba/proov-km-waechter-fix/commits/main).
+
+</details>
+
+Also: a **Prompt Engineering Assistant** (LangChain agents that generate, optimise and red-team prompts) and **Network Anomaly Detection** (unsupervised Isolation Forest on NSL-KDD). Write-ups and demos are on the [portfolio](https://bocar-ba-portfolio.surge.sh).
+
+**Source code:** The Legacy Fix is public. The other projects are private; if you're evaluating me for a role, [email me](mailto:bcrtob@gmail.com?subject=Source%20code%20request) with the project name and I'll share access or walk you through it.
 
 <br/>
 
@@ -97,6 +105,8 @@ Also: **Network Anomaly Detection**, an unsupervised Isolation Forest pipeline o
 
 **Local by default.** Sensitive data shouldn't leave the device, so I try Ollama and on-prem stacks before cloud APIs.
 
+**Audit the agent.** I use AI coding agents daily, and I review their patches like a colleague's: in The Legacy Fix I rejected agent changes that quietly reintroduced the bug.
+
 **Deterministic where it counts.** Safety-critical decisions stay in plain, testable logic; language models handle judgment calls only, and their output passes a guardrail before it reaches anyone.
 
 <br/>
@@ -104,8 +114,8 @@ Also: **Network Anomaly Detection**, an unsupervised Isolation Forest pipeline o
 ## Activity
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/bcr-ba/bcr-ba/output/profile-3d-dark.svg">
-  <img src="https://raw.githubusercontent.com/bcr-ba/bcr-ba/output/profile-3d-light.svg" alt="3D contribution graph for the last year, redrawn daily" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/bcr-ba/bcr-ba/output/activity-dark.svg">
+  <img src="https://raw.githubusercontent.com/bcr-ba/bcr-ba/output/activity-light.svg" alt="Animated contribution graph for the last year, redrawn daily" width="100%">
 </picture>
 
 <br/><br/>

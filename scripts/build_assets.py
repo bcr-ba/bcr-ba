@@ -177,6 +177,15 @@ def social_preview(t):
 
 CARDS = [
     {
+        "slug": "legacyfix",
+        "kicker": "AI-AGENT AUDIT  ·  PROOV x IBM BOB",
+        "title": "The Legacy Fix",
+        "desc": "Directed and audited an AI coding agent on a 2013-era service: 5 bugs fixed, every agent patch reviewed.",
+        "metric": "3,000 km", "caption": "of early warning restored per car",
+        "stack": "PYTHON · PYTEST · PANDAS",
+        "access": "PUBLIC REPO",
+    },
+    {
         "slug": "finaia",
         "kicker": "APPLIED ML  ·  CREDIT RISK",
         "title": "FINAIA",
@@ -201,15 +210,6 @@ CARDS = [
         "desc": "RAG triage assistant over public health sources, with jailbreak detection and hallucination filtering.",
         "metric": "5", "caption": "urgency levels, EN / FR",
         "stack": "RAG · LANGCHAIN · PYQT6",
-        "access": "CODE ON REQUEST",
-    },
-    {
-        "slug": "promptlab",
-        "kicker": "GENAI SECURITY  ·  AGENTS",
-        "title": "Prompt Engineering Assistant",
-        "desc": "LangChain agents that generate, optimise and red-team prompts, with bias and injection checks built in.",
-        "metric": "3", "caption": "modes: generate, optimise, test",
-        "stack": "LANGCHAIN · STREAMLIT · PYTHON",
         "access": "CODE ON REQUEST",
     },
 ]
