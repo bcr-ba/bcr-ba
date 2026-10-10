@@ -54,7 +54,7 @@ def frame(t, w, h, rx=18):
   </defs>
   <rect x="0.5" y="0.5" width="{w - 1}" height="{h - 1}" rx="{rx}" fill="url(#bg)"/>
   <rect x="0.5" y="0.5" width="{w - 1}" height="{h - 1}" rx="{rx}" fill="url(#halo)"/>
-  <rect x="0.5" y="0.5" width="{w - 1}" height="{h - 1}" rx="{rx}" fill="none" stroke="{t['border']}" stroke-opacity="{t['border_op']}"/>"""
+""" + (f"""  <rect x="0.5" y="0.5" width="{w - 1}" height="{h - 1}" rx="{rx}" fill="none" stroke="{t['border']}" stroke-opacity="{t['border_op']}"/>""" if rx else "")
 
 
 def banner(t):
@@ -140,13 +140,58 @@ def card(t, c):
 """
 
 
+def linkedin_banner(t):
+    """1584x396 LinkedIn cover. The profile photo covers the lower left and mobile
+    crops the edges, so copy sits right of centre and the left only carries the motif."""
+    w, h = 1584, 396
+    pts = [(96, 214), (178, 150), (262, 196), (346, 128), (430, 176), (514, 112), (598, 160)]
+    edges = list(zip(pts, pts[1:])) + [(pts[0], pts[2]), (pts[2], pts[4]), (pts[3], pts[5])]
+    lines = "\n".join(
+        f'  <line x1="{a[0]}" y1="{a[1]}" x2="{b[0]}" y2="{b[1]}" stroke="{t["line"]}" stroke-opacity="0.35" stroke-width="1.5"/>'
+        for a, b in edges
+    )
+    nodes = "\n".join(
+        f'  <circle cx="{x}" cy="{y}" r="7" fill="{t["node"]}" stroke="{t["line"]}" stroke-width="2"/>'
+        for x, y in pts if (x, y) != pts[4]
+    )
+    ax, ay = pts[4]
+    return f"""<svg viewBox="0 0 {w} {h}" width="{w}" height="{h}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bocar Ba, Junior AI Engineer: LLM agents and applied ML, built to run locally.">
+  <rect width="{w}" height="{h}" fill="{t['bg1']}"/>
+{frame(t, w, h, rx=0)}
+  <defs>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="{t['line']}" fill-opacity="0.10"/>
+    </pattern>
+    <linearGradient id="fade" x1="{pts[-1][0]}" y1="0" x2="780" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="{t['line']}" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="{t['accent']}" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="{w}" height="{h}" fill="url(#dots)"/>
+{lines}
+  <line x1="{pts[-1][0]}" y1="{pts[-1][1]}" x2="780" y2="{pts[-1][1]}" stroke="url(#fade)" stroke-width="1.5"/>
+{nodes}
+  <circle cx="{ax}" cy="{ay}" r="16" fill="{t['accent']}" fill-opacity="0.18"/>
+  <circle cx="{ax}" cy="{ay}" r="9" fill="{t['accent']}"/>
+  <text x="1488" y="128" text-anchor="end" font-family="{MONO}" font-size="16" letter-spacing="4" fill="{t['subtle']}">BOCAR BA  ·  JUNIOR AI ENGINEER</text>
+  <text x="1488" y="200" text-anchor="end" font-family="{SANS}" font-size="50" font-weight="700" fill="{t['text']}">LLM agents and applied ML,</text>
+  <text x="1488" y="262" text-anchor="end" font-family="{SANS}" font-size="50" font-weight="700" fill="{t['text']}">built to run <tspan fill="{t['accent']}">locally.</tspan></text>
+  <rect x="1400" y="290" width="88" height="3" rx="1.5" fill="{t['accent']}"/>
+  <text x="1488" y="336" text-anchor="end" font-family="{MONO}" font-size="15" letter-spacing="2.5" fill="{t['muted']}">LANGGRAPH · OLLAMA · FASTAPI · XGBOOST   |   GITHUB.COM/BCR-BA</text>
+</svg>
+"""
+
+
 def main():
     OUT.mkdir(exist_ok=True)
     for name, t in THEMES.items():
         (OUT / f"banner-{name}.svg").write_text(banner(t), encoding="utf-8", newline="\n")
         for c in CARDS:
             (OUT / f"card-{c['slug']}-{name}.svg").write_text(card(t, c), encoding="utf-8", newline="\n")
-    print(f"wrote {len(THEMES) * (1 + len(CARDS))} files to {OUT}")
+    brand = OUT.parent / "brand"
+    brand.mkdir(exist_ok=True)
+    (brand / "linkedin-banner.svg").write_text(linkedin_banner(THEMES["dark"]), encoding="utf-8", newline="\n")
+    print(f"wrote {len(THEMES) * (1 + len(CARDS))} files to {OUT} and the LinkedIn banner to {brand}")
 
 
 if __name__ == "__main__":
